@@ -363,7 +363,7 @@ public class NBAWebScrap{
 		//1 - Find the player object 2- assign the values to the player 3- calculate the player rating
 		//Values assigned are MPG,UP,PPG,RPG,APG,SPG,BPG,ORTG,DRTG
 		for (int player_index = 0; player_index<players_on_team_list.get(team_prefix).size();player_index++) {
-			if (given_player_attribute_list[2].equals(players_on_team_list.get(team_prefix).get(player_index).getTheWord())) {
+			if (given_player_attribute_list[2].equals(players_on_team_list.get(team_prefix).get(player_index).getPlayerName())) {
 				assignRealStatistics(given_player_attribute_list,team_prefix,player_index);
 				//Once the player is found - exit for loop
 				player_index = players_on_team_list.get(team_prefix).size();
@@ -616,10 +616,11 @@ public class NBAWebScrap{
 	}
 	
 	//Reads the team files based on the directory name given
-	//Uses readFile
+	//Uses readFile function
 	//Reads each of the team's players and ratings and rankings
 	//Creates the team and players objects
 	public static void readDirectory(String directory_name) throws IOException {
+	
 			//Based on the directory_name given update/initialize the appropriate ArrayList of Players and Teams
 			if (directory_name.equals("latestRoster")) {
 				//Clear the previous entries
@@ -703,20 +704,23 @@ public static void readFile(String direct, ArrayList<Team> given_teamcounter, Ar
 				current_player.setFilelist((int)player_rating);
 				current_player.setPosition(current_position.toUpperCase());
 				current_player.setRating(player_rating);
-				current_player.setTheWord(full_name);
+				current_player.setPlayerName(full_name);
 				current_player.setTeam(prefix);
 				current_team.setPlayerslist(current_player);
 				//If Player is an Allstar - set the player's Allstar attribute
 				if(fr.hasNext("A")){
-					current_player.setAllstar(fr.next());
+					fr.next();
+					current_player.setAllstar(true);
 				}
 				//If Player has been Upgraded -set the player's Upgraded attribute
 				if(fr.hasNext("U")){
-					current_player.setUpgraded(fr.next());
+					fr.next();
+					current_player.setUpgraded(true);
 				}
 				//If Player is a Rookie -set the player's Rookie attribute
 				if(fr.hasNext("R")){
-					current_player.setYear(fr.next());
+					fr.next();
+					current_player.setRookieStatus(true);
 				}
 				//If Player is Injured -set the player's Injured attribute
 				if (fr.hasNext("I")) {
@@ -753,6 +757,7 @@ public static void readFile(String direct, ArrayList<Team> given_teamcounter, Ar
 }
 	
 }
+
 
 	//Called if the user wishes to enter their own desired path for the team files
 	//User enters their desired path
@@ -863,7 +868,7 @@ public static void readFile(String direct, ArrayList<Team> given_teamcounter, Ar
 							}
 						}
 						//Write out the current player with the name, rating, upgraded status,rankings
-						out.write(given_team_rosters.get(team_index).getPlayer(player_index).toFinalString()+"\n");
+						out.write(given_team_rosters.get(team_index).getPlayer(player_index).toString()+"\n");
 					}
 					out.close();
 			    }
