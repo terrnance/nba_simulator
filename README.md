@@ -50,6 +50,8 @@ U stands for Upgraded by User, R stands for Rookie, A stands for Allstar, I stan
 
 ## Things you need to use the simulator
 
+arg[0] = latestRoster arg[1] = editRoster
+
 Currently, You will need to add the two rosters "latestRoster" and "editableRoster" to the arguments in Java. The editableRoster can be edited by users, but the latestRoster can only be updated by scrapping the latest NBA rosters and statistics.
 
 
