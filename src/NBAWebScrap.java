@@ -301,7 +301,7 @@ public class NBAWebScrap{
 		for (int i = 0; i < latest_roster_teamcounter.size(); i++) {
 			for (int j = i + 1; j < latest_roster_teamcounter.size(); j++) {
 				//Swap the teams placement of the teams in the array if the order is incorrect
-				if (tmp_team_counter.get(i).getTheName().compareTo(tmp_team_counter.get(j).getTheName())>0) {
+				if (tmp_team_counter.get(i).getTeamName().compareTo(tmp_team_counter.get(j).getTeamName())>0) {
 					Team temp = tmp_team_counter.get(i);
 					tmp_team_counter.set(i,tmp_team_counter.get(j));
 					tmp_team_counter.set(j,temp);
@@ -620,7 +620,6 @@ public class NBAWebScrap{
 	//Reads each of the team's players and ratings and rankings
 	//Creates the team and players objects
 	public static void readDirectory(String directory_name) throws IOException {
-	
 			//Based on the directory_name given update/initialize the appropriate ArrayList of Players and Teams
 			if (directory_name.equals("latestRoster")) {
 				//Clear the previous entries
@@ -757,8 +756,7 @@ public static void readFile(String direct, ArrayList<Team> given_teamcounter, Ar
 }
 	
 }
-
-
+	
 	//Called if the user wishes to enter their own desired path for the team files
 	//User enters their desired path
 	//The function walks through the path - creating the directories that do not exist along the way
@@ -848,7 +846,7 @@ public static void readFile(String direct, ArrayList<Team> given_teamcounter, Ar
 				//EX: AtlantaHawks01.txt
 				String string_offset = "0";
 				//Create the filename for the team
-				String filename = given_team_rosters.get(team_index).getTheName()+string_offset+team_index+".txt";
+				String filename = given_team_rosters.get(team_index).getTeamName()+string_offset+team_index+".txt";
 
 			    File file = new File(path+filename);
 			    //Check that the path exists before writing the files out
