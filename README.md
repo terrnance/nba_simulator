@@ -22,12 +22,12 @@ In order to scrap, I am using the websites:
 http://www.espn.com/nba/players/_/position/pg 
 https://www.nbastuffer.com/2019-2020-nba-player-stats/
 
-For the first website, I am getting the current team rosters
-For the second website, I am getting the every player's statistics
+For the first website, I am getting the current team rosters.
+For the second website, I am getting the every player's statistics.
 
 Based on the player's PPG, RPG, APG, ORTG, UP, and MPG - I calcuate the player's offensive rating.
 Based on the player's SPG, BPG, DRTG and MPG - I calcuate the player's defensive rating.
-I use the offensive rating and defensive rating in combination with the actual player's PPG, RPG, APG, MPG to calculate the player's rating
+I use the offensive rating and defensive rating in combination with the actual player's PPG, RPG, APG, MPG to calculate the player's rating.
 
 Afterwards, I used the team player's rating to calculate the scores of games.
 
