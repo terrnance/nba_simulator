@@ -54,9 +54,9 @@ public class NBAWebScrap{
 		//Scrap the internet to get the statistics of the current season
 		getStatisticsWebScrap();
 		//Set the player's scoring, rebounding, and assisting rating within their team
-		setLeagueWidePlayerRankings();
+		NBARatingCalculator.setLeagueWidePlayerRankings(latest_roster_teamcounter);
 		//Rearranges the player's on their given teams so that higher rated players are presented higher
-		organizeTeams(latest_roster_teamcounter);
+		NBACommonFunctions.organizeTeams(latest_roster_teamcounter);
 		//Writes those changes to the latestRoster directory
 		NBAFileReadWrite.writeOutfile(false,"latestRoster",latest_roster_teamcounter);
 		System.out.println("\n \t COMPLETED - RETRIEVED LATEST TEAM ROSTERS \n");
@@ -338,7 +338,7 @@ public class NBAWebScrap{
 		current_player.setORTG(getFloatValue(given_player_attribute_list[28]));
 		current_player.setDRTG(parseDRTG(given_player_attribute_list[29]));
 		//Calculates the Player rating based on the statistics inputed
-		calculatePlayerRating(current_player);
+		NBARatingCalculator.calculatePlayerRating(current_player);
 	}
 	
 	//Called by assignRealStatistics
@@ -365,204 +365,6 @@ public class NBAWebScrap{
 		}
 		else {
 			return 0;
-		}
-	}
-	
-	//Called by assignRealStatistics
-	//Calculates the Player's defensive rating and offensive rating
-	//Assigns the combination of these ratings with the player's actual statistics to get the rating
-	private static void calculatePlayerRating(Player current_player) {
-		float defensive_rating = calculateDefensiveRating(current_player);
-		float offensive_rating = calculateOffensiveRating(current_player);
-		int rating = (int) (Math.floor((((defensive_rating-0)*.65) + ((offensive_rating+0)*3)+(current_player.getRPG()/4)+(current_player.getAPG()+current_player.getPPG()/(current_player.getMPG()/36))+((current_player.getMPG()+12)*2))/2.75));
-		//System.out.println(current_player.getTheWord()+" Overall Rating is "+ rating);
-		current_player.setRating(rating);
-	}
-	
-	//Called by calculateDefensiveRating
-	//Using the defensive statistics -> DRTG, SPG, BPG, RPG with MPG -- calculate the given player's defensive rating
-	//Returns a float of the rating
-	private static float calculateDefensiveRating(Player current_player) {
-		//Defensive Portion
-		//DRTG: Min-88, Max-118 -->  Defensive Player of the Year - 88-95; All Defensive 1st Team - 95.1-101; Above Average 101.1-105;  Average 105.1-109; Below Average 109.1 - 118 
-		//SPG: Min-0.1, Max-3.15 --> All-Time-Great - 2.55-3.15 ; League-Leader - 1.75-2.54; Above Average -  1-1.74; Average - 0.5-.99; Below Average - 0.1-.49
-		//BPG: Min-0.1, Max-3.75 --> All-Time-Great - 3.15-3.75; League-Leader - 2-3.15; Above Average - .75-1.99; Average - .4-.74; Below Average - 0.1-.39
-		float defensive_rating = (118 - current_player.getDRTG());
-		if (current_player.getPosition().contains("G")||current_player.getPosition().equals("SF")){
-			defensive_rating+=(20 * current_player.getSPG()) + (15 * current_player.getBPG());
-		}
-		else {
-			defensive_rating+=(17 * current_player.getSPG()) + (18 * current_player.getBPG());
-		}	
-		defensive_rating=((defensive_rating / current_player.getMPG()) * 36) / 2;
-		defensive_rating+=((118 - current_player.getDRTG()) / 4);
-		defensive_rating+=(current_player.getRPG() / 15);
-		while (defensive_rating > 100) {
-			defensive_rating /= 2;
-		}
-		if (defensive_rating > 75) {
-			defensive_rating /= 2;
-		}
-		if (defensive_rating > 50 && current_player.getMPG()< 18) {
-			defensive_rating /= 2;
-		}
-		if (defensive_rating < 28) {
-			defensive_rating = 28;
-		}
-		//System.out.println(current_player.getTheWord()+" Defensive Rating is "+defensive_rating);
-		return defensive_rating;
-	}
-	
-	//Called by calculateOffensiveRating
-	//Using the offensive statistics -> ORTG, UP, PPG, APG with MPG -- calculate the given player's offensive rating
-	//Returns a float of the rating
-	private static float calculateOffensiveRating(Player current_player) {
-		//Offensive Portion
-		//ORTG: Smalls-Min: 80  Bigs-Max:135 --> All-Time-Great - 
-		float offensive_rating = (current_player.getUP() * current_player.getORTG()) / 100;
-		offensive_rating+=(current_player.getAPG()*15);
-		offensive_rating+=((current_player.getPPG()*30) / (current_player.getUP()+1));
-		offensive_rating= (offensive_rating /current_player.getMPG())* 36;
-		offensive_rating=(offensive_rating/(current_player.getUP() +1 )) *(current_player.getORTG()/(current_player.getUP()+1));
-		offensive_rating+=(current_player.getMPG() -(36-current_player.getMPG()));
-		offensive_rating = (offensive_rating+(current_player.getPPG()+(current_player.getAPG()*4)));
-		offensive_rating = offensive_rating / ((current_player.getAPG()+current_player.getPPG()) / current_player.getUP());
-		offensive_rating /=3;
-		while (offensive_rating >40 && current_player.getMPG()<24) {
-			offensive_rating-=(24-current_player.getMPG());
-		}
-		if (offensive_rating > 45 && current_player.getORTG()< 115) {
-			offensive_rating /= 1.75;
-		}
-		if (offensive_rating  > current_player.getUP()* 3) {
-			offensive_rating -=current_player.getUP();
-		}
-		if (offensive_rating < 28) {
-			offensive_rating = 28;
-		}
-		//System.out.println(current_player.getTheWord()+" Offensive Rating is "+offensive_rating);
-		return offensive_rating;
-	}
-	
-	//For every team, update the players so that they are ranked statistically within their team
-	//Player receiving a ranking for how well they rank respectively in scoring, rebounding, and assisting
-	private static void setLeagueWidePlayerRankings() {
-		for(int team_index=0;team_index<latest_roster_teamcounter.size();team_index++) {
-			setTeamPlayerRankings(team_index);
-		}
-	}
-	
-	//Given a team, update the players on the team so they are ranked statistically within their team
-	//Player receiving a ranking for how well they rank respectively in scoring, rebounding, and assisting
-	private static void setTeamPlayerRankings(int team_index) {
-		//Each of the following arrays are used to order the players by a respective stat
-		//Higher rating are placed higher in the array
-		//EX: if Player A scores more points than Player B on the team - Player A will have a higher index in the points_rankings
-		int[] points_rankings = new int[latest_roster_teamcounter.get(team_index).leng()];
-		int[] rebounds_rankings = new int[latest_roster_teamcounter.get(team_index).leng()];
-		int[] assists_rankings = new int[latest_roster_teamcounter.get(team_index).leng()];
-		for (int player_index =0; player_index<latest_roster_teamcounter.get(team_index).leng();player_index++) {
-			//If first player being examined simply put them in respective arrays
-			if (player_index ==0) {
-				points_rankings[0] =(player_index);
-				rebounds_rankings[0] =(player_index);
-				assists_rankings[0] =(player_index);
-			}
-			else {
-				//Add the player to the end of the array
-				points_rankings[player_index] =(player_index);
-				rebounds_rankings[player_index] =(player_index);
-				assists_rankings[player_index] =(player_index);
-				//Check the stats of the player and move the player's index up in the array if player has more of particular stat
-				for (int switch_index = player_index;switch_index >0;switch_index--) {
-					//if Player A at lower index has higher PPG than Player B at higher index --> move Player A up
-					if (latest_roster_teamcounter.get(team_index).getPlayer(points_rankings[switch_index]).getPPG()>latest_roster_teamcounter.get(team_index).getPlayer(points_rankings[switch_index-1]).getPPG()) {
-						int player_index_moving_up = points_rankings[switch_index];
-						points_rankings[switch_index] = points_rankings[switch_index-1];
-						points_rankings[switch_index-1] =player_index_moving_up;
-					}
-					//if Player A at lower index has higher RPG than Player B at higher index --> move Player A up
-					if (latest_roster_teamcounter.get(team_index).getPlayer(rebounds_rankings[switch_index]).getRPG()>latest_roster_teamcounter.get(team_index).getPlayer(rebounds_rankings[switch_index-1]).getRPG()) {
-						int player_index_moving_up = rebounds_rankings[switch_index];
-						rebounds_rankings[switch_index] = rebounds_rankings[switch_index-1];
-						rebounds_rankings[switch_index-1] =player_index_moving_up;
-					}
-					//if Player A at lower index has higher APG than Player B at higher index --> move Player A up
-					if (latest_roster_teamcounter.get(team_index).getPlayer(assists_rankings[switch_index]).getAPG()>latest_roster_teamcounter.get(team_index).getPlayer(assists_rankings[switch_index-1]).getAPG()) {
-						int player_index_moving_up = assists_rankings[switch_index];
-						assists_rankings[switch_index] = assists_rankings[switch_index-1];
-						assists_rankings[switch_index-1]= player_index_moving_up;
-					}
-				}
-			}
-		}
-		//Set the scoring rankings for all the players on the teams
-		for (int points_index=0;points_index<points_rankings.length;points_index++) {
-			latest_roster_teamcounter.get(team_index).getPlayer(points_rankings[points_index]).setScoring(points_index+1);
-		}
-		//Set the rebounding rankings for all the players on the teams
-		for (int rebounds_index=0;rebounds_index<points_rankings.length;rebounds_index++) {
-			latest_roster_teamcounter.get(team_index).getPlayer(rebounds_rankings[rebounds_index]).setRebounding(rebounds_index+1);
-		}
-		//Set the assisting rankings for all the players on the teams
-		for (int assists_index=0;assists_index<points_rankings.length;assists_index++) {
-			latest_roster_teamcounter.get(team_index).getPlayer(assists_rankings[assists_index]).setAssisting(assists_index+1);
-		}
-	}
-
-	//Rearranges the ratings of the team so that all the best rated players at every 
-	//position are positioned first
-	public static void organizeTeams(ArrayList<Team> given_league_rosters) {
-		String[] fixed_basketball_positions =new String[5];
-		fixed_basketball_positions[0]="PG";
-		fixed_basketball_positions[1]="SG";
-		fixed_basketball_positions[2]="SF";
-		fixed_basketball_positions[3]="PF";
-		fixed_basketball_positions[4]="C";
-		ArrayList<Player> position_players_array = new ArrayList<Player>();//Stores the players who play same position on the team
-		ArrayList<Player> new_team_players_array = new ArrayList<Player>();//Stores all players on one team in the correct order
-		for (int team_index=0; team_index< given_league_rosters.size();team_index++) {
-			//For all teams, go through each position and reorder players by rating
-			for (int position_index=0; position_index<5;position_index++) {
-				for (int team_player_index=0; team_player_index<given_league_rosters.get(team_index).leng();team_player_index++) {
-					//Get all the players who play the current viewed position
-					if(given_league_rosters.get(team_index).getPlayer(team_player_index).getPosition().equals(fixed_basketball_positions[position_index])) {
-						position_players_array.add(given_league_rosters.get(team_index).getPlayer(team_player_index));
-					}
-				}
-				//Reorder the list of players of by rating so that higher rated players at position are listed first
-				if(position_players_array.size()>1) {
-					//Reorder the array so that higher rated players are presented first the array
-					for (int h=position_players_array.size()-1; h>0;h--) {
-						//Switch the ordering if the current player has a higher rating than player in preceding index
-						if(position_players_array.get(h).getRating()>position_players_array.get(h-1).getRating()) {
-							Player tmp = position_players_array.get(h-1);
-							position_players_array.set(h-1, position_players_array.get(h));
-							position_players_array.set(h,tmp);
-							//Reset the position - in the case that the multiple people need to be rearranged
-							h=position_players_array.size()-1;
-						}
-					}
-					//After reordering the players by rating -- add the players to the final "new_team_players_array" array
-					for (int i=0; i< position_players_array.size();i++) {
-						new_team_players_array.add(position_players_array.get(i));
-					}
-				}
-				//If only one player at the position -- add the player to the final "new_team_players_array" array
-				else if  (position_players_array.size()==1){
-					new_team_players_array.add(position_players_array.get(0));
-				}
-				//Clear the array
-				position_players_array.clear();
-			}
-			//Clear all the current players on the team
-			given_league_rosters.get(team_index).clear();
-			//(Re)Add the players in their new sorted order to the team.
-			for (int u=0;u<new_team_players_array.size();u++) {
-				given_league_rosters.get(team_index).setPlayerslist(new_team_players_array.get(u));
-			}
-			//Clear the array
-			new_team_players_array.clear();
 		}
 	}
 	
