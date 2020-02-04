@@ -37,11 +37,16 @@ In addition, users can simulate games will both the lastest rosters and their ow
 I am using text file to store the team and player info.
 
 The format of the generally file goes:
+
 TeamPrefix(Rotation)
+
 TeamConference
+
 TeamDivision
 
+
 Position
+
 PlayerName PlayerRating PlayerRankingPoints PlayerRankingRebounds PlayerRankingsAssists
 
 U stands for Upgraded by User, R stands for Rookie, A stands for Allstar, I stands for Injured
