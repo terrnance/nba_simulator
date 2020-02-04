@@ -32,6 +32,20 @@ Afterwards, I used the team player's rating to calculate the scores of games.
 
 In addition, users can simulate games will both the lastest rosters and their own customizable rosters.
 
+### File format
+
+I am using text file to store the team and player info.
+
+The format of the generally file goes:
+TeamPrefix(Rotation)
+TeamConference
+TeamDivision
+
+Position
+PlayerName PlayerRating PlayerRankingPoints PlayerRankingRebounds PlayerRankingsAssists
+
+U stands for Upgraded by User, R stands for Rookie, A stands for Allstar, I stands for Injured
+
 ## Things you need to use the simulator
 
 Currently, You will need to add the two rosters "latestRoster" and "editableRoster" to the arguments in Java. The editableRoster can be edited by users, but the latestRoster can only be updated by scrapping the latest NBA rosters and statistics.
