@@ -45,9 +45,9 @@ I plan on committing the rest of my files later so that others can run my code a
 
 ## Acknowledgments
 
-NBA 
-ESPN - http://www.espn.com/nba/players/_/position/pg
-NBA Stufferr - https://www.nbastuffer.com/2019-2020-nba-player-stats/
+### NBA 
+### ESPN - http://www.espn.com/nba/players/_/position/pg
+### NBA Stufferr - https://www.nbastuffer.com/2019-2020-nba-player-stats/
 
 ## What I am using 
 Eclipse IDE for Java Developers
