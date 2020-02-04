@@ -1,0 +1,30 @@
+NOP14
+WEST
+Southwest
+
+PG:
+Lonzo Ball 85 5 5 1
+Frank Jackson 61 11 15 15
+Josh Gray 55 16 16 12
+
+SG:
+Jrue Holiday 87 2 7 2
+Josh Hart 73 6 4 9
+JJ Redick 73 4 10 5
+Kenrich Williams 69 14 6 10
+E'Twaun Moore 67 7 11 7
+Nickeil Alexander-Walker 63 13 13 4
+
+SF:
+Brandon Ingram 84 1 3 3
+Zion Williamson 76 3 2 8
+Zylan Cheatham 61 15 14 16
+Darius Miller 0 17 17 17
+
+PF:
+Nicolo Melli 72 12 12 13
+
+C:
+Derrick Favors 77 8 1 6
+Jaxson Hayes 75 9 8 14
+Jahlil Okafor 70 10 9 11

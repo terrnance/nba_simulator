@@ -1,0 +1,31 @@
+OKC15
+null
+null
+
+PG:
+Chris Paul 86 4 5 1
+Dennis Schroder 81 3 6 2
+Scotty Hopson 0 14 15 15
+
+SG:
+Shai Gilgeous-Alexander 82 1 2 3
+Luguentz Dort 71 8 12 9
+Terrance Ferguson 69 10 10 7
+Hamidou Diallo 68 7 8 11
+Deonte Burton 56 13 13 13
+Scotty Hopson 0 15 16 16
+Andre Roberson 0 16 17 17
+
+SF:
+Darius Bazley 64 12 7 12
+Abdel Nader 64 9 11 10
+Isaiah Roby 51 17 18 18
+
+PF:
+Danilo Gallinari 77 2 3 5
+Mike Muscala 74 11 9 8
+Kevin Hervey 48 18 14 14
+
+C:
+Nerlens Noel 84 6 4 6
+Steven Adams 80 5 1 4

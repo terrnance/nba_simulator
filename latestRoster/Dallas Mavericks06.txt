@@ -1,0 +1,30 @@
+DAL14
+WEST
+Southwest
+
+PG:
+Delon Wright 80 10 8 3
+J.J. Barea 77 6 12 2
+Jalen Brunson 76 9 11 4
+
+SG:
+Luka Doncic 94 1 1 1
+Tim Hardaway Jr. 73 3 9 6
+Seth Curry 71 4 13 5
+Ryan Broekhoff 65 13 14 13
+Courtney Lee 64 15 16 15
+Antonius Cleveland 52 16 15 16
+Josh Reaves 49 17 17 17
+
+SF:
+Dorian Finney-Smith 77 7 5 9
+Justin Jackson 65 12 10 12
+
+PF:
+Kristaps Porzingis 80 2 2 10
+Maxi Kleber 73 8 6 11
+
+C:
+Willie Cauley-Stein 83 14 3 7
+Dwight Powell 79 5 4 8
+Boban Marjanovic 62 11 7 14

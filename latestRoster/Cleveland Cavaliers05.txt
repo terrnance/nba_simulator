@@ -1,0 +1,30 @@
+CLE14
+EAST
+Central
+
+PG:
+Darius Garland 79 3 11 1
+Collin Sexton 79 1 6 4
+Dante Exum 73 8 10 10
+Brandon Knight 66 9 14 7
+Matthew Dellavedova 65 13 15 3
+
+SG:
+Kevin Porter Jr. 69 6 8 8
+Matt Mooney 54 15 16 12
+Dylan Windler 0 16 17 16
+
+SF:
+Cedi Osman 75 5 7 5
+Alfonzo McKinnie 62 12 9 13
+
+PF:
+Kevin Love 78 2 2 2
+Larry Nance Jr. 75 7 3 9
+John Henson 66 10 4 11
+Dean Wade 59 14 13 15
+
+C:
+Tristan Thompson 77 4 1 6
+Ante Zizic 59 11 5 14
+Marques Bolden 0 17 12 17

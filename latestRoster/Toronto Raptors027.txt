@@ -1,0 +1,30 @@
+TOR14
+EAST
+Atlantic
+
+PG:
+Kyle Lowry 88 2 6 1
+
+SG:
+Fred VanVleet 88 3 8 2
+Norman Powell 75 5 9 7
+Terence Davis 74 8 10 6
+Matt Thomas 66 12 14 11
+Malcolm Miller 55 16 16 14
+
+SF:
+OG Anunoby 76 6 4 9
+Rondae Hollis-Jefferson 76 9 5 8
+Patrick McCaw 68 11 11 5
+Oshae Brissett 57 13 13 16
+Stanley Johnson 57 14 15 15
+Paul Watson 50 17 17 12
+
+PF:
+Pascal Siakam 85 1 2 4
+Chris Boucher 65 10 7 13
+
+C:
+Serge Ibaka 76 4 1 10
+Marc Gasol 74 7 3 3
+Dewan Hernandez 57 15 12 17

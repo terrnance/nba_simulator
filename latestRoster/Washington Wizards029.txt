@@ -1,0 +1,30 @@
+WAS14
+EAST
+Southeast
+
+PG:
+Gary Payton II 80 13 10 5
+Ish Smith 79 8 13 2
+Isaiah Thomas 74 6 14 3
+John Wall 0 17 17 17
+
+SG:
+Bradley Beal 90 1 8 1
+Jordan McRae 71 5 11 4
+Garrison Mathews 69 12 15 14
+Admiral Schofield 59 16 16 16
+
+SF:
+Davis Bertans 74 2 7 8
+Troy Brown Jr. 74 9 4 6
+Moritz Wagner 72 7 3 11
+Isaac Bonga 64 14 12 12
+
+PF:
+Rui Hachimura 74 3 5 9
+Johnathan Williams 59 15 9 15
+
+C:
+Ian Mahinmi 75 10 2 10
+Thomas Bryant 73 4 1 7
+Anzejs Pasecniks 67 11 6 13

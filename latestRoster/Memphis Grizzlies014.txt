@@ -1,0 +1,32 @@
+MEM16
+WEST
+Southwest
+
+PG:
+Ja Morant 85 2 7 1
+Tyus Jones 76 10 14 2
+
+SG:
+Dillon Brooks 75 3 8 6
+De'Anthony Melton 74 7 6 3
+Grayson Allen 67 9 11 10
+Josh Jackson 65 8 9 13
+Marko Guduric 64 13 13 12
+Yuta Watanabe 57 15 15 18
+John Konchar 52 16 16 15
+Andre Iguodala 0 17 17 16
+D.J. Kennedy 0 18 18 17
+
+SF:
+Jae Crowder 78 6 2 4
+Kyle Anderson 77 12 5 5
+Solomon Hill 73 11 10 7
+Brandon Clarke 70 5 3 9
+Bruno Caboclo 69 14 12 14
+
+PF:
+Jaren Jackson Jr. 78 1 4 11
+Jarrid Famous 0 19 19 19
+
+C:
+Jonas Valanciunas 75 4 1 8

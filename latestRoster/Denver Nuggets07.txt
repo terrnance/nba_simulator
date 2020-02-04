@@ -1,0 +1,30 @@
+DEN14
+WEST
+Northwest
+
+PG:
+Jamal Murray 82 2 6 2
+Monte Morris 80 7 11 4
+PJ Dozier 69 11 10 7
+
+SG:
+Gary Harris 77 6 9 6
+Malik Beasley 66 9 12 9
+Mike Miller 0 15 15 15
+
+SF:
+Will Barton 81 3 2 3
+Torrey Craig 65 12 8 12
+Vlatko Cancar 55 14 14 13
+
+PF:
+Mason Plumlee 80 10 4 5
+Paul Millsap 73 4 3 8
+Jerami Grant 71 5 7 10
+Michael Porter Jr. 64 8 5 11
+Jarred Vanderbilt 58 13 13 14
+Juan Hernangomez 0 16 16 16
+
+C:
+Nikola Jokic 88 1 1 1
+Bol Bol 0 17 17 17

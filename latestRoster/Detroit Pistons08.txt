@@ -1,0 +1,30 @@
+DET14
+EAST
+Central
+
+PG:
+Derrick Rose 82 1 8 1
+Reggie Jackson 77 5 9 2
+Tim Frazier 69 13 13 5
+Jordan Bone 55 15 15 13
+
+SG:
+Bruce Brown 82 9 4 4
+Luke Kennard 81 3 6 3
+Langston Galloway 72 8 11 9
+Khyri Thomas 55 16 16 16
+Sviatoslav Mykhailiuk 0 17 17 17
+
+SF:
+Tony Snell 70 10 12 8
+Sekou Doumbouya 65 11 7 15
+Louis King 58 14 14 12
+
+PF:
+Blake Griffin 79 4 3 6
+Markieff Morris 69 6 5 10
+Christian Wood 69 7 2 11
+Thon Maker 59 12 10 14
+
+C:
+Andre Drummond 88 2 1 7

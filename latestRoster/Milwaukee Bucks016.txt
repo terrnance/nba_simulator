@@ -1,0 +1,30 @@
+MIL14
+EAST
+Central
+
+PG:
+Eric Bledsoe 82 3 4 2
+George Hill 82 5 9 4
+Frank Mason III 0 16 16 16
+
+SG:
+Donte DiVincenzo 79 6 5 5
+Wesley Matthews 74 8 12 8
+Kyle Korver 72 9 13 10
+Sterling Brown 67 11 8 11
+Pat Connaughton 65 12 7 6
+Cameron Reynolds 0 17 17 17
+
+SF:
+Khris Middleton 80 2 2 3
+Dragan Bender 64 13 10 9
+Thanasis Antetokounmpo 56 15 15 15
+
+PF:
+Giannis Antetokounmpo 93 1 1 1
+Ersan Ilyasova 72 7 3 12
+D.J. Wilson 70 14 14 13
+
+C:
+Brook Lopez 79 4 6 7
+Robin Lopez 67 10 11 14
