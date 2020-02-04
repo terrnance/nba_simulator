@@ -1,5 +1,7 @@
 # nba_simulator
 
+Terrance Nance <tnance@middlebury.edu> 
+
 I created this project in order to extract the current NBA rosters and player statistics so that I could simulate real NBA games. I used Java to create these files. Users are able to edit the roster by adding, removing, and trading players from teams. Users can also simulate the NBA postseason and simulate the NBA season.
 
 ### Key Abbreviations
