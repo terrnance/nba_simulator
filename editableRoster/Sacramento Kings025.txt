@@ -1,0 +1,30 @@
+SAC14
+WEST
+Pacific
+
+PG:
+De'Aaron Fox 89 2 8 1
+Cory Joseph 69 9 12 2
+Yogi Ferrell 60 13 14 7
+
+SG:
+Buddy Hield 82 1 5 4
+Bogdan Bogdanovic 76 3 10 3
+Justin James 72 14 15 12
+Kent Bazemore 70 8 9 11
+Kyle Guy 55 16 17 16
+DaQuan Jeffries 51 17 16 15
+
+SF:
+Harrison Barnes 78 4 6 6
+
+PF:
+Nemanja Bjelica 77 7 4 5
+Marvin Bagley III 74 5 2 10
+Harry Giles III 69 12 11 8
+Eric Mika 69 10 3 17
+Anthony Tolliver 54 15 13 13
+
+C:
+Richaun Holmes 77 6 1 9
+Dewayne Dedmon 62 11 7 14

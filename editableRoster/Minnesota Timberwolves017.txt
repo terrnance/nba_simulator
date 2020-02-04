@@ -1,0 +1,29 @@
+MIN13
+WEST
+Northwest
+
+PG:
+Shabazz Napier 81 5 9 1
+Jordan McLaughlin 74 12 14 4
+
+SG:
+Andrew Wiggins 83 2 4 3
+Josh Okogie 72 7 5 6
+Jarrett Culver 71 6 7 5
+Allen Crabbe 61 15 15 12
+Jaylen Nowell 59 13 16 9
+
+SF:
+Jake Layman 70 4 12 13
+Keita Bates-Diop 66 9 10 14
+Kelan Martin 63 11 8 15
+
+PF:
+Robert Covington 77 3 2 8
+Noah Vonleh 65 14 6 10
+Jordan Bell 64 16 11 16
+
+C:
+Karl-Anthony Towns 85 1 1 2
+Gorgui Dieng 67 8 3 7
+Naz Reid 63 10 13 11

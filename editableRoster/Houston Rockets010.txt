@@ -1,0 +1,29 @@
+HOU13
+WEST
+Southwest
+
+PG:
+Russell Westbrook 94 2 2 1
+Austin Rivers 72 7 8 3
+Chris Clemons 62 9 12 10
+
+SG:
+James Harden 96 1 4 2
+Eric Gordon 75 3 11 5
+Ben McLemore 69 5 10 8
+Michael Frazier 59 12 13 12
+Gerald Green 0 14 14 14
+William Howard 0 15 15 15
+
+SF:
+Danuel House Jr. 74 6 5 6
+Thabo Sefolosha 58 11 9 11
+
+PF:
+P.J. Tucker 77 8 3 4
+
+C:
+Clint Capela 79 4 1 7
+Isaiah Hartenstein 73 10 6 9
+Tyson Chandler 56 13 7 13
+Nene Hilario 0 16 16 16

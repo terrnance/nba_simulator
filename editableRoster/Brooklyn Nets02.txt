@@ -1,0 +1,32 @@
+BKN16
+EAST
+Atlantic
+
+PG:
+Kyrie Irving 89 1 4 2
+Spencer Dinwiddie 86 2 9 1
+Chris Chiozza 51 16 15 12
+Jeremiah Martin 48 17 16 16
+
+SG:
+Caris LeVert 76 4 7 3
+Garrett Temple 75 7 8 4
+Timothe Luwawu-Cabarrot 68 10 12 15
+Theo Pinson 64 12 14 8
+Dzanan Musa 60 14 13 13
+Justin Anderson 54 15 17 17
+Jeremiah Martin 0 18 18 18
+
+SF:
+Joe Harris 75 3 6 5
+Rodions Kurucs 72 11 11 14
+Wilson Chandler 71 9 5 10
+Kevin Durant 0 19 19 19
+
+PF:
+Taurean Prince 75 5 3 6
+Nicolas Claxton 72 13 10 11
+
+C:
+DeAndre Jordan 84 8 1 7
+Jarrett Allen 78 6 2 9

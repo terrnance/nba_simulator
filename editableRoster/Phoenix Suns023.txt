@@ -1,0 +1,32 @@
+PHO16
+WEST
+Pacific
+
+PG:
+Ricky Rubio 89 4 6 1
+Jevon Carter 70 14 12 12
+Ty Jerome 64 13 13 7
+Jalen Lecque 64 15 17 14
+Jared Harper 48 17 16 16
+
+SG:
+Devin Booker 88 1 7 2
+Tyler Johnson 68 10 14 9
+Ty Jerome 0 18 18 17
+
+SF:
+Kelly Oubre Jr. 80 2 2 10
+Mikal Bridges 79 9 8 11
+Cameron Johnson 66 8 9 13
+Elie Okobo 66 12 15 4
+Tariq Owens 54 16 11 18
+
+PF:
+Cheick Diallo 72 11 10 15
+Dario Saric 72 7 3 5
+Tariq Owens 0 19 19 19
+
+C:
+Deandre Ayton 80 3 1 8
+Aron Baynes 71 5 4 6
+Frank Kaminsky 70 6 5 3

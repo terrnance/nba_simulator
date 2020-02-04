@@ -1,0 +1,31 @@
+ORL15
+EAST
+Southeast
+
+PG:
+D.J. Augustin 81 7 13 1
+Markelle Fultz 80 6 8 2
+Michael Carter-Williams 72 8 9 6
+
+SG:
+Evan Fournier 79 2 11 4
+Terrence Ross 72 4 10 9
+Melvin Frazier Jr. 56 15 16 15
+
+SF:
+Wes Iwundu 74 10 12 10
+BJ Johnson 57 13 15 13
+Vic Law 49 17 17 16
+
+PF:
+Jonathan Isaac 81 5 3 7
+Aaron Gordon 78 3 2 5
+Al-Farouq Aminu 75 11 5 8
+Amile Jefferson 60 16 14 14
+Gary Clark 57 14 7 17
+Vic Law 0 18 18 18
+
+C:
+Nikola Vucevic 82 1 1 3
+Khem Birch 67 12 6 11
+Mo Bamba 64 9 4 12

@@ -1,0 +1,30 @@
+POR14
+WEST
+Northwest
+
+PG:
+Damian Lillard 92 1 6 1
+
+SG:
+CJ McCollum 83 2 7 2
+Gary Trent Jr. 70 9 15 11
+Anfernee Simons 68 8 11 6
+
+SF:
+Trevor Ariza 80 5 3 4
+Rodney Hood 75 6 10 7
+Mario Hezonja 70 11 9 12
+Nassir Little 63 12 13 13
+Jaylen Hoard 58 13 12 15
+
+PF:
+Carmelo Anthony 77 4 2 5
+Zach Collins 77 7 8 3
+Skal Labissiere 74 10 5 8
+Caleb Swanigan 65 14 4 10
+Wenyen Gabriel 54 16 16 14
+
+C:
+Hassan Whiteside 82 3 1 9
+Moses Brown 57 15 14 16
+Jusuf Nurkic 0 17 17 17

@@ -1,0 +1,30 @@
+ATL14
+EAST
+Southeast
+
+PG:
+Trae Young 94 1 4 1
+Jeff Teague 77 9 11 2
+Brandon Goodwin 64 8 12 8
+
+SG:
+Kevin Huerter 77 5 5 3
+DeAndre' Bembry 76 11 9 5
+Evan Turner 73 14 14 4
+Cam Reddish 70 6 6 9
+Vince Carter 63 12 13 12
+Treveon Graham 56 16 16 16
+Charlie Brown Jr. 0 17 17 17
+
+SF:
+De'Andre Hunter 74 4 7 6
+Chandler Parsons 61 15 15 14
+
+PF:
+John Collins 80 2 1 10
+Jabari Parker 75 3 2 7
+Bruno Fernando 74 13 10 13
+
+C:
+Alex Len 69 7 3 11
+Damian Jones 67 10 8 15

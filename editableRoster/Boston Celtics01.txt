@@ -1,0 +1,30 @@
+BOS14
+EAST
+Atlantic
+
+PG:
+Marcus Smart 84 5 8 2
+Kemba Walker 83 1 7 1
+Brad Wanamaker 75 8 10 5
+Carsen Edwards 63 14 15 12
+Tremont Waters 62 9 16 8
+
+SG:
+Jaylen Brown 80 3 3 6
+Javonte Green 59 12 14 13
+Romeo Langford 58 16 17 16
+
+SF:
+Gordon Hayward 80 4 4 3
+
+PF:
+Jayson Tatum 83 2 2 4
+Semi Ojeleye 60 15 12 14
+Grant Williams 60 13 9 11
+
+C:
+Daniel Theis 83 7 5 7
+Enes Kanter 72 6 1 9
+Robert Williams III 68 10 6 10
+Tacko Fall 60 11 11 17
+Vincent Poirier 58 17 13 15
