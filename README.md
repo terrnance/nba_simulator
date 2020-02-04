@@ -38,16 +38,12 @@ I am using text file to store the team and player info.
 
 The format of the generally file goes:
 
-TeamPrefix(Rotation)
+ #### TeamPrefix(Rotation)
+ #### TeamConference
+ #### TeamDivision
 
-TeamConference
-
-TeamDivision
-
-
-Position
-
-PlayerName PlayerRating PlayerRankingPoints PlayerRankingRebounds PlayerRankingsAssists
+ #### Position
+ #### PlayerName PlayerRating PlayerRankingPoints PlayerRankingRebounds PlayerRankingsAssists
 
 U stands for Upgraded by User, R stands for Rookie, A stands for Allstar, I stands for Injured
 
