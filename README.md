@@ -18,6 +18,7 @@ I created this project in order to extract the current NBA rosters and player st
 ## Things about the simulator
 
 In order to scrap, I am using the websites: 
+
 http://www.espn.com/nba/players/_/position/pg 
 https://www.nbastuffer.com/2019-2020-nba-player-stats/
 
