@@ -1,12 +1,9 @@
 import java.io.*;
-import javax.swing.*;
-import java.awt.*;
 import java.util.*;
-import java.lang.*;
 import java.net.*;
 /*
-Author: Terrance Nance <tnance@middlebury.edu>
-*/
+ * Author: Terrance Nance <tnance@middlebury.edu>
+ */
 public class NBAWebScrap{
 	
 	static Scanner scan = new Scanner(System.in);
