@@ -74,7 +74,6 @@ I plan on creating an app so that others can simulate games on the go. I might a
 ### NBA Stufferr - https://www.nbastuffer.com/2019-2020-nba-player-stats/
 ### CBS Sports - https://www.cbssports.com/nba/injuries/
 
-
 ## What I am using 
 Eclipse IDE for Java Developers
 
