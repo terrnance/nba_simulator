@@ -21,9 +21,13 @@ In order to scrap, I am using the websites:
 
 http://www.espn.com/nba/players/_/position/pg 
 https://www.nbastuffer.com/2019-2020-nba-player-stats/
+https://www.cbssports.com/nba/injuries/
+https://www.espn.com/nba/story/_/id/28292088/nba-all-star-game-2020-rosters-schedule-news-how-watch
 
 For the first website, I am getting the current team rosters.
 For the second website, I am getting the every player's statistics.
+For the third website, I am getting the current injuries.
+For the fourth website, I am getting the current allstars.
 
 Based on the player's PPG, RPG, APG, ORTG, UP, and MPG - I calcuate the player's offensive rating.
 Based on the player's SPG, BPG, DRTG and MPG - I calcuate the player's defensive rating.
@@ -66,8 +70,10 @@ I plan on committing the rest of my files later so that others can run my code a
 ## Acknowledgments
 
 ### NBA 
-### ESPN - http://www.espn.com/nba/players/_/position/pg
+### ESPN - http://www.espn.com/nba/players/_/position/pg https://www.espn.com/nba/story/_/id/28292088/nba-all-star-game-2020-rosters-schedule-news-how-watch
 ### NBA Stufferr - https://www.nbastuffer.com/2019-2020-nba-player-stats/
+### CBS Sports - https://www.cbssports.com/nba/injuries/
+
 
 ## What I am using 
 Eclipse IDE for Java Developers
