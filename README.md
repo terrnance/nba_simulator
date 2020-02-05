@@ -54,9 +54,9 @@ U stands for Upgraded by User, R stands for Rookie, A stands for Allstar, I stan
 
 ## Things you need to use the simulator
 
-arg[0] = latestRoster arg[1] = editRoster
+The main function is NBAMainSimulator.java
 
-Currently, You will need to add the two rosters "latestRoster" and "editableRoster" to the arguments in Java. The editableRoster can be edited by users, but the latestRoster can only be updated by scrapping the latest NBA rosters and statistics.
+Currently, You will need to have the two rosters have the "latestRoster" and "editableRoster" directories readily available to run. The editableRoster can be edited by users, but the latestRoster can only be updated by scrapping the latest NBA rosters and statistics. For the first boot, the directories will be created and filled with the correct files automatically.
 
 
 ## Why I took on this project
@@ -65,7 +65,7 @@ I really enjoy watching and following the NBA. I always come up with trade ideas
 
 ## Future Work
 
-I plan on committing the rest of my files later so that others can run my code and simulate NBA games for themselves. I also plan on creating an app so that others can simulate games on the go.
+I plan on creating an app so that others can simulate games on the go. I might also potentially update the algorithms used for calculating a player's rating and creating the box score.
 
 ## Acknowledgments
 
