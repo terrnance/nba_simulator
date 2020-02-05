@@ -160,14 +160,14 @@ public class NBARoster  {
 	}
 	
 	//Capitalizes the first character in the string and Lowercases the rest of the characters
-	public static String TitleCase(String word_given) {
+	private static String TitleCase(String word_given) {
 		String last_characters = word_given.substring(1).toLowerCase();
 		String first_character = word_given.substring(0, 1).toUpperCase();
 		return first_character.concat(last_characters);
 	}
 	
 	//Prompts the user to manually input the Player's name for editing, adding, removing, and trading players
-	public static String manual() {
+	private static String manual() {
 		String player ="";
 		System.out.print("Player's First Name: ");
 		String first = scan.next();
@@ -181,7 +181,7 @@ public class NBARoster  {
 	
 	//Checks the whether the player name given is already in the roster of players
 	//Returns the index of the player in the roster list if the player is found
-	public static int checkValidityOfPlayer(String player_name) {
+	private static int checkValidityOfPlayer(String player_name) {
 		int player_index;
 		//Find the player based on the players Arraylist
 		for ( player_index =0; player_index<editable_roster_players.size();player_index++) {
@@ -198,7 +198,7 @@ public class NBARoster  {
 	
 	//Lists the players for one team for editing, removing based on the player's Arraylist.
 	//Return the player's index
-	public static int teamChoice() {
+	private static int teamChoice() {
 		//Lists the team with their given index
 		NBACommonFunctions.showTeams(editable_roster_teamcounter);
 		//User chooses the team
@@ -232,7 +232,7 @@ public class NBARoster  {
 	
 	//Lists every player in the roster 
 	//Returns the player's index chosen by the user
-	public static int listAll() {
+	private static int listAll() {
 		//Shows all the players and their index
 		for (int play_index=0; play_index<editable_roster_players.size();play_index++) {
 			System.out.println(play_index+" "+editable_roster_players.get(play_index).getPlayerName());
@@ -253,7 +253,7 @@ public class NBARoster  {
 	//Assign a player that currently on team to a new team
 	//The selected player can also be a free agent and get assigned to a team
 	//User selects the player and their new team in the function
-	public static void assignNewTeam() {
+	private static void assignNewTeam() {
 		int player_index = editPlayerOptions();
 		if (player_index != -1) {
 			Player player_selected = editable_roster_players.get(player_index);
@@ -317,7 +317,7 @@ public class NBARoster  {
 	
 	//Rearranges the ratings of the team so that all the best rated players at every 
 	//position are positioned first
-	public static void organizeTeam() {
+	private static void organizeTeam() {
 		String[] fixed_basketball_positions =new String[5];
 		fixed_basketball_positions[0]="PG";
 		fixed_basketball_positions[1]="SG";
@@ -371,7 +371,7 @@ public class NBARoster  {
 	
 	//Lists the options for selecting a player
 	//Returns the index of the selected player
-	public static int editPlayerOptions() {
+	private static int editPlayerOptions() {
 		int player_index=-1;
 		System.out.println("[0] Quit Mode, [1] Type In Manually, [2] List Players from Specific Team, [3] List All Players");
 		//User chooses an option
@@ -412,7 +412,7 @@ public class NBARoster  {
 	
 	//Edits the given players rating if the new rating is higher than their previous rating
 	//If the new rating is higher ask the user to save their changes
-	public static void changePlayerRating(int player_index, int choice) {
+	private static void changePlayerRating(int player_index, int choice) {
 		//Continue to prompt the user to given a rating for the select player until they quit or update the rating.
 		while (choice ==0) {
 			System.out.print("Rating: ");
@@ -443,7 +443,7 @@ public class NBARoster  {
 
 	//Asks for Team prefix and adds players to the team with their rating
 	//Users have the option to add a new (user-created) player or a existing player from free agency 
-	public static void addPlayer() {
+	private static void addPlayer() {
 		NBACommonFunctions.showTeams(editable_roster_teamcounter);
 		int team_index = scan.nextInt(); 
 		if(NBACommonFunctions.checkValidityOfTeam(editable_roster_teamcounter,team_index)){
@@ -473,7 +473,7 @@ public class NBARoster  {
 	//Adds a brand new created player to a team (team_index is provided by user)
 	//Prompts the user to input the new player's name, rating, position
 	//Called by addPlayer()
-	public static void createNewPlayer(int team_index) {
+	private static void createNewPlayer(int team_index) {
 		//Add brand new created player 
 		String player=manual();//Get the new player's name
 		System.out.print("Rating: ");
@@ -496,7 +496,7 @@ public class NBARoster  {
 	//Prompts the user to choose the free agent
 	//If the choosen player is a free agency, the player is added to the team
 	//Called by addPlayer()
-	public static void addFromFreeAgency(int team_index) {
+	private static void addFromFreeAgency(int team_index) {
 		//Show all the current free agents
 		for (int all_players_index =0; all_players_index < editable_roster_players.size(); all_players_index++) {
 			if (editable_roster_players.get(all_players_index).getTeam() == "FA") {
@@ -525,7 +525,8 @@ public class NBARoster  {
 	}
 	
 	//Removes a inputed and valid player from the team roster and entire roster if the user wishes.
-	public static void removePlayer() {
+	//Team must have at least 9 players afterwards in order to effectively remove a player
+	private static void removePlayer() {
 		int player_index = editPlayerOptions();
 		if (player_index == -1) {
 			System.out.println("Unfortunately, this player does not exist!");
@@ -537,27 +538,36 @@ public class NBARoster  {
 	
 	//Prompts the user if they want to remove the selected player from the team
 	//Additionally prompts the user if they want to delete the player from the roster
-	public static void removePlayerFromTeam(int player_index) {
+	//Ensures that at least 9 players will remain on the roster afterwards
+	private static void removePlayerFromTeam(int player_index) {
 		String player = editable_roster_players.get(player_index).getPlayerName();
 		for (int j=0; j<editable_roster_teamcounter.size();j++) {
 			if (editable_roster_players.get(player_index).getTeam().equals(editable_roster_teamcounter.get(j).getPrefix())) {
-				System.out.println("Are you sure you want to remove "+player+" from the team");
-				if (confirmChanges()) {
-					//Remove the player from the team
-					editable_roster_teamcounter.get(j).removePlayer(editable_roster_players.get(player_index));
-					//Update the player not to be on the team
-					editable_roster_players.get(player_index).setTeam("FA");
-					System.out.println("Success, "+player+" was been removed from the team");
-					//Prompt the user to remove the player from the roster
-					removePlayerFromRoster(player_index, player);
+				//If the roster has at least 10 players - allow user to remove player
+				if (editable_roster_teamcounter.get(j).leng() > 9) {
+					System.out.println("Are you sure you want to remove "+player+" from the team");
+					if (confirmChanges()) {
+						//Remove the player from the team
+						editable_roster_teamcounter.get(j).removePlayer(editable_roster_players.get(player_index));
+						//Update the player not to be on the team
+						editable_roster_players.get(player_index).setTeam("FA");
+						System.out.println("Success, "+player+" was been removed from the team");
+						//Prompt the user to remove the player from the roster
+						removePlayerFromRoster(player_index, player);
+					}
 				}
+				else {
+					//If the roster will have at least than 9 players on the roster
+					System.out.println("Team must have at least 9 players on the team");
+				}
+				
 			}
 		}
 	
 	}
 	
 	//Prompts the user if they want to delete the player from the roster
-	public static void removePlayerFromRoster(int player_index, String player) {
+	private static void removePlayerFromRoster(int player_index, String player) {
 		System.out.println("[0] Continue, [1] Delete "+player+" completely from roster");
 		int choice= scan.nextInt();
 		if (choice ==1) {
@@ -571,7 +581,7 @@ public class NBARoster  {
 	//Prompts the user to complete option 1 or option 2
 	//Returns the boolean of the user's decisions.
 	//true- if the user wishes to chooses option 1 , false - if the user chooses option 2
-	public static boolean continuePrompt(String option1, String option2) {
+	private static boolean continuePrompt(String option1, String option2) {
 		System.out.println("[0] "+option1+", [1] "+option2);
 		int end_choice = scan.nextInt();
 		if (end_choice == 0) {
@@ -580,7 +590,7 @@ public class NBARoster  {
 		return false;
 	}
 	
-	public static void tradeTwoTeams() {
+	private static void tradeTwoTeams() {
 		boolean quit_trade = false;
 		Team team1= null;
 		Team team2= null;
@@ -655,7 +665,7 @@ public class NBARoster  {
 	//Users select the player(s) from the given team
 	//They can select multiple players
 	//Returns the list of players the user select to be traded;
-	public static ArrayList<Player> selectPlayers(Team team_given,String option2) {
+	private static ArrayList<Player> selectPlayers(Team team_given,String option2) {
 		boolean continue_select_players = true;
 		ArrayList<Player> players_leaving_team = new ArrayList<Player>();
 		//Continue prompting the user to select players until they quit
@@ -707,7 +717,7 @@ public class NBARoster  {
 	//Trades the players from the team1 to team 2 and team 2 to team 1
 	//Given the list of the players being traded from each team
 	//As long as the team rosters won't have more than 15 players after the trade
-	public static void tradePlayers(Team team1, Team team2, ArrayList<Player> team1array,ArrayList<Player> team2array) {
+	private static void tradePlayers(Team team1, Team team2, ArrayList<Player> team1array,ArrayList<Player> team2array) {
 		if(team1.leng()+team2array.size()-team1array.size()<=roster_cap&&team2.leng()+team1array.size()-team2array.size()<=roster_cap){
 			//Trade all the players from team 1 to team 2
 			String new_players_team1= movePlayersToNewTeam(team1,team2,team1array);
@@ -726,7 +736,7 @@ public class NBARoster  {
 	//Move the players of the players_to_newteam array to the newteam
 	//Removes the players from their old team and trades the player to new team
 	//Returns a string of the players traded to their new team
-	public static String movePlayersToNewTeam(Team oldteam, Team newteam, ArrayList<Player> players_to_newteam) {
+	private static String movePlayersToNewTeam(Team oldteam, Team newteam, ArrayList<Player> players_to_newteam) {
 		//List of new players being traded to the new team
 		String new_players_team =players_to_newteam.get(0).getPlayerName(); 
 		for (int current_player_index=0;current_player_index<players_to_newteam.size();current_player_index++) {
@@ -745,7 +755,7 @@ public class NBARoster  {
 	}
 	
 	//Prompts the user to confirm their changes
-	public static boolean confirmChanges() {
+	private static boolean confirmChanges() {
 		//Asks the user to save their changes
 		System.out.println("[0] Cancel changes,[1] Confirm changes");
 		int choice = scan.nextInt();
@@ -773,7 +783,7 @@ public class NBARoster  {
 	}
 
 	//Views the current players of the Team
-	public static void viewTeam(ArrayList<Team> given_team_arraylist) {
+	private static void viewTeam(ArrayList<Team> given_team_arraylist) {
 		NBACommonFunctions.showTeams(given_team_arraylist);
 		int team_index = scan.nextInt();
 		//If team index given is appropriate
@@ -891,7 +901,7 @@ public class NBARoster  {
 	//Creates the initial team 
 	//Prompts the user to input the team info (City, Mascot, Prefix)
 	//Adds the newteam to the teamcounter and returns the team
-	public static Team createTeamBackground() {
+	private static Team createTeamBackground() {
 		System.out.println("Team City: ");
 		String city = scan.next();
 		System.out.println("Team Mascot: ");
