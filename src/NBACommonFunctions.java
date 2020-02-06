@@ -37,7 +37,7 @@ public class NBACommonFunctions{
 							position_players_array.set(h-1, position_players_array.get(h));
 							position_players_array.set(h,tmp);
 							//Reset the position - in the case that the multiple people need to be rearranged
-							h=position_players_array.size()-1;
+							h=position_players_array.size();
 						}
 					}
 					//After reordering the players by rating -- add the players to the final "new_team_players_array" array
