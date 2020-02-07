@@ -1118,9 +1118,9 @@ public class NBAGame {
 		//Calculates the boxScore for the game 
 		//Calculates the player's individual points, rebounds, assists
 		private static void boxScore(Team team_given, int points, int rebounds, int assists, boolean show_special_boxscore, boolean isPlayoffs) {
-			int team_rotation = 9;
+			int team_rotation = 7;
 			//Assign Rotations to each team
-			if (team_given.getRotation()>0) {
+			if (team_given.getRotation()>7) {
 				team_rotation= team_given.getRotation();
 			}
 			//Calculate the Player's Points
