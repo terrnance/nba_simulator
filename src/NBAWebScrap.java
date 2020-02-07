@@ -373,34 +373,49 @@ public class NBAWebScrap{
 			return 0;
 		}
 	}
+	
 	//Called by getLatestUpdates()
 	//Reads the HTML from the URL: "https://www.espn.com/nba/story/_/id/28292088/nba-all-star-game-2020-rosters-schedule-news-how-watch"
 	//Finds the line of code containing the all stars and their name
 	//Sets the player's allstar status to true Makes the player an allstar
-	private static void getAllstarsScrap() throws IOException {
+	public static void getAllstarsScrap() throws IOException {
 		URL url = new URL("https://www.espn.com/nba/story/_/id/28292088/nba-all-star-game-2020-rosters-schedule-news-how-watch");
-        // Get the input stream through URL Connection
-        URLConnection connection = url.openConnection();
-        InputStream inputstream = connection.getInputStream();
-        BufferedReader br = new BufferedReader(new InputStreamReader(inputstream));
-        String line = null;
-        boolean continue_loop = true;
-        // Find the line containing the list of players and save it
-        while ((line = br.readLine()) != null && continue_loop) {
-        		if (line.contains("NBA All-Star Saturday Night")) {
+        	// Get the input stream through URL Connection
+        	URLConnection connection = url.openConnection();
+        	InputStream inputstream = connection.getInputStream();
+        	BufferedReader br = new BufferedReader(new InputStreamReader(inputstream));
+        	String line = null;
+        	boolean continue_loop = true;
+        	// Find the line containing the list of players and save it
+        	while ((line = br.readLine()) != null && continue_loop) {
+        		if (line.contains("Voted in as starters")) {
         			continue_loop= false;
         		}
-        		if (line.contains("player") &&(!line.contains("Scores"))&&(!line.contains("Game"))&&(!line.contains("news")&&(!line.contains("site")))) {
+        		//Gets the team captains - makes them allstars
+        		if (line.contains("Team <a href=")&&line.contains("www.espn.com")&&(!line.contains("Standings"))) {
+        			//Get only the player info 
+        			int other_player_index = line.lastIndexOf("Team");
+        			String newLine = line.substring(other_player_index,line.length()-1);
+        			//Find the allstar name and make them an allstar
+        			String allstars_name = extractAllstarPlayer(newLine);
+        			makePlayerAllstar(allstars_name);
+        			
+        		}
+        		//Gets the rest of the starters and bench - makes them allstars
+        		else if (line.contains("player")&&line.contains("www.espn.com")&&(!line.contains("Standings"))) {
+        			//Find the allstar name and make them an allstar
         			String allstars_name = extractAllstarPlayer(line);
         			makePlayerAllstar(allstars_name);
         		}
-        }
+        	}
 	}
+	
 	//Called by getAllstarsScrap()
 	//Given a HTML line containing a list of allstars - call a regular expression
 	//to get only the player's name and return player's name
-	private static String extractAllstarPlayer(String string_given) {
-		String[] new_list = string_given.split("<a href=\\\"http[s]{0,1}:\\/\\/www.espn.com\\/nba\\/player\\/_\\/id\\/[0-9]*\\/[a-z.']*-[a-z']*[-]*[a-z]*[.]*\\\">|<\\/a>[ ]*[(captain)]* ");
+	public static String extractAllstarPlayer(String string_given) {
+		String regex = "<a href=\\\"http[s]{0,1}:\\/\\/www.espn.com\\/nba\\/player\\/_\\/id\\/[0-9]*\\/[a-z.']*-[a-z']*[-]*[a-z]*[.]*\\\">|<\\/a>[*]{0,1}[,]{0,1}[ ]*[(captain)]*[ ]*[<\\/strong>]{0,1}";
+		String[] new_list = string_given.split(regex);
 		return new_list[1];
 	}
 	
