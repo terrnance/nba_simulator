@@ -82,4 +82,19 @@ public class NBACommonFunctions{
 		}
 		return valid;
 	}
+	
+	//Calculates the number of players in the team's rotation
+	//Player must be have a rating higher than 65 and not be injured to be considered part of the team rotation 
+	//Updates the team's rotation
+	public static void getRotation(Team team_given) {
+		int team_rotation = 0;
+		for (int player_index=0;player_index<team_given.leng();player_index++) {
+			Player current_player = team_given.getPlayer(player_index);
+			//If the player is not injured increment and update the number of player in team's rotation
+			if ((!current_player.getInjury())&& current_player.getRating()>65) {
+				team_rotation++;
+			}
+		}
+		team_given.setRotation(team_rotation);
+	}
 }
