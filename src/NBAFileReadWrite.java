@@ -233,6 +233,7 @@ public class NBAFileReadWrite  {
 	//them into a directory for the NBAGame class
 	//targeted_path - determines whether the user gets to enter their desired path (true - user may enter own path)
 	//if targeted_path is false - directory_name will be name of the directory team files are stored
+	//Generates the number of players in the rotation for each team (Players in rotation are not injured and have a rating higher than 65)
 	//Creates a file for each team
 	public static void writeOutfile(boolean targeted_path,String directory_name,ArrayList<Team> given_team_rosters) throws IOException{
 		String path;
@@ -260,8 +261,10 @@ public class NBAFileReadWrite  {
 			    //Check that the path exists before writing the files out
 			    if (new File (path).isDirectory()) {
 			    		BufferedWriter out = new BufferedWriter(new FileWriter (file));
+					//Generate team rotation (number of players in rotation
+			    		NBACommonFunctions.getRotation(given_team_rosters.get(team_index));
 					//Write the initial team info
-					out.write(given_team_rosters.get(team_index).getPrefix()+(given_team_rosters.get(team_index).leng()-3)+"\n");
+					out.write(given_team_rosters.get(team_index).getPrefix()+(given_team_rosters.get(team_index).getRotation())+"\n");
 					out.write(given_team_rosters.get(team_index).getConference()+"\n"+given_team_rosters.get(team_index).getDivision()+"\n"+"\n");
 					//Write the first position
 					out.write(given_team_rosters.get(team_index).getPlayer(0).getPosition()+":\n");
