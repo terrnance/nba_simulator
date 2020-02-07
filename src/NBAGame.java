@@ -25,9 +25,9 @@ public class NBAGame {
 			choice = scan.nextInt();
 			if (choice==1) {
 				//Simulates a NBA Game based on the intensity given
-				System.out.println("\n"+"[0] Regular Season Intensity, [1] Playoff Intensity");
+				System.out.println("\n"+"[1] Regular Season Intensity, [2] Playoff Intensity");
 				int play = scan.nextInt();
-				boolean isPlayoffs = (play == 1);
+				boolean isPlayoffs = (play == 2);
 				teamAvgVs(null,null,true,true,isPlayoffs);
 			}
 			else if (choice==2) {
@@ -472,7 +472,7 @@ public class NBAGame {
 					System.out.println("\t \t \t \t \t  \t   Q"+current_quarter);
 					System.out.println("\t \t \t \t\t  \t"+team1.getPrefix()+": "+(int)(team1stats[0]/quarter_effects[current_quarter]));
 					System.out.println("\t \t \t \t\t\t"+team2.getPrefix()+": "+(int)(team2stats[0]/quarter_effects[current_quarter]));
-					System.out.println("[0] Press Any Key to Continue");
+					System.out.println("Press Any Key to Continue");
 					System.out.print("You:");
 					scan.next();
 				}
