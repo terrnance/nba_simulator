@@ -48,7 +48,7 @@ public class NBAWebScrap{
 		latest_roster_players.clear();
 		players_on_team_list = new Hashtable<String,ArrayList<Player>>();
 		//Scrap the internet to get all the current players and create the Player Objects
-		webScrap();
+		webScrapInitialize();
 		//Puts the players on their respective teams
 		fillOutRosters();
 		//Put the teams in alphabetical order
@@ -72,7 +72,7 @@ public class NBAWebScrap{
 	//By position - go to the website that stores the player info and grab the list of players at position
 	//Use a regular expression to get only the players and their team
 	//Creates the Player Objects
-	private static void webScrap() throws IOException  {
+	private static void webScrapInitialize() throws IOException  {
 		String[] shortname_positions = new String[]{"pg","sg","sf","pf","c"};
 		String[] longname_positions = new String[]{"Point Guards","Shooting Guards","Small Forwards","Power Forwards","Centers"};
 		for (int position_index = 0; position_index < 5; position_index++) {
