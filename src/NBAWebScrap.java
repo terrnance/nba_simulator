@@ -223,7 +223,7 @@ public class NBAWebScrap{
 			new_team_object.setDivision("Pacific");
 			new_team_object.setConference("WEST");
 		}
-		else if (team_prefix.equals("DEN")||team_prefix.equals("MIN")||team_prefix.equals("OKN")||team_prefix.equals("POR")||team_prefix.equals("UTA")) {
+		else if (team_prefix.equals("DEN")||team_prefix.equals("MIN")||team_prefix.equals("OKC")||team_prefix.equals("POR")||team_prefix.equals("UTA")) {
 			new_team_object.setDivision("Northwest");
 			new_team_object.setConference("WEST");
 		}	
