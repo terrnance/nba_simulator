@@ -325,7 +325,14 @@ public class NBAWebScrap{
 				//Once the player is found - exit for loop
 				player_index = players_on_team_list.get(team_prefix).size();
 			}
-
+			//Special case for Sviatoslav Mykhailiuk because nbastuffer shortens his name
+			if (given_player_attribute_list[2].equals("Svi Mykhailiuk")) {
+				if (players_on_team_list.get(team_prefix).get(player_index).getPlayerName().equals("Sviatoslav Mykhailiuk")) {
+					assignRealStatistics(given_player_attribute_list,team_prefix,player_index);
+					//Once the player is found - exit for loop
+					player_index = players_on_team_list.get(team_prefix).size();
+				}
+			}
 		}
 	}
 	
