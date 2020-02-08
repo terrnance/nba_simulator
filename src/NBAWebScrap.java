@@ -117,7 +117,7 @@ public class NBAWebScrap{
 		//Helpful tool towards building regular expressions --> https://regex101.com
 		//The only expression to only get player's names and current teams">[a-zA-Z]*[ ]*[a-zA-Z.,]* [a-zA-Z.]*[ ]*[a-zA-Z]*<"
 		//Call the regular expression to dismiss all the excess information
-		String[] new_list = newString.split("[<\\/a><\\/td><td>]*<\\/td><\\/tr><tr class=\"[a-z]* player-[0-9]*-[0-9]*\"><td><a href=\"http:\\/\\/www.espn.com\\/nba\\/player\\/_\\/id\\/[0-9]*\\/[a-z.']*-[a-z']*[-]*[a-z]*[.]*\">|<\\/a><\\/td><td><a href=\"http:\\/\\/www.espn.com\\/nba\\/team\\/_\\/name\\/[a-z]*\\/[a-z]*-[76]*[a-z]*[-]*[a-z]*\">|<\\/a><\\/td><td>[A-Z]{1}[a-zA-Z]*|<\\/a><\\/td><td><\\/td><\\/tr><tr class=\"stathead\"><td colspan=\"3\">[A-Z]");
+		String[] new_list = newString.split("(<\\/a><\\/td><td>){0,}<\\/td><\\/tr><tr class=\"[a-z]* player-[0-9]*-[0-9]*\"><td><a href=\"http:\\/\\/www.espn.com\\/nba\\/player\\/_\\/id\\/[0-9]*\\/[a-z.']*-[a-z']*[-]*[a-z]*[.]*\">|<\\/a><\\/td><td><a href=\"http:\\/\\/www.espn.com\\/nba\\/team\\/_\\/name\\/[a-z]*\\/[a-z]*-[76]*[a-z]*[-]*[a-z]*\">|<\\/a><\\/td><td>[A-Z]{1}[a-zA-Z]*|<\\/a><\\/td><td><\\/td><\\/tr><tr class=\"stathead\"><td colspan=\"3\">[A-Z]");
 		return new_list;
 	}
 	
