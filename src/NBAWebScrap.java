@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.*;
 import java.net.*;
+import java.text.Normalizer;
 /*
  * This file scraps the internet to get the latest NBA rosters and player statistics
  * The program creates the current team's and players in the NBA
