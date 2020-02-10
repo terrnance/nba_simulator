@@ -536,7 +536,6 @@ public class NBAWebScrap{
 			}
 			//Once found set Rookie status to true
 			if (latest_roster_players.get(player_index).getPlayerName().equals(new_name)) {
-				System.out.println(latest_roster_players.get(player_index));
 				latest_roster_players.get(player_index).setRookieStatus(true);
 				player_index = latest_roster_players.size();
 			}
