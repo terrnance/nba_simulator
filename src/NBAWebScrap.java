@@ -61,6 +61,8 @@ public class NBAWebScrap{
 		getAllstarsScrap();
 		//Scraps the internet to get the current injured players
 		getInjuriesScrap();
+		//Scraps the internet ot get the current rookies in teh NBA
+		getRookiesScrap();
 		//Rearranges the player's on their given teams so that higher rated players are presented higher
 		NBACommonFunctions.organizeTeams(latest_roster_teamcounter);
 		//Writes those changes to the latestRoster directory
@@ -486,7 +488,60 @@ public class NBAWebScrap{
 			}
 		}
 	}
-
+	
+	//Called by getLatestUpdates()
+	//Reads the HTML from the URL: "https://www.basketball-reference.com/leagues/NBA_2020_rookies.html"
+	//Finds the line of code containing the rookie player and their name
+	//Sets the player's rookie status to true Makes the playera rookie
+	private static void getRookiesScrap() throws IOException {
+		URL url = new URL("https://www.basketball-reference.com/leagues/NBA_2020_rookies.html");
+        	// Get the input stream through URL Connection
+        	URLConnection connection = url.openConnection();
+        	InputStream inputstream = connection.getInputStream();
+        	BufferedReader br = new BufferedReader(new InputStreamReader(inputstream));
+        	String line = null;
+        	boolean continue_loop = true;
+       		// Find the line containing the list of players and save it
+        	while ((line = br.readLine()) != null && continue_loop) {
+        		if (line.contains("In the News")) {
+        			continue_loop=false;
+        		}
+        		else if (line.contains("players")&&(!line.contains("hoversmooth"))&&(!line.contains("Search"))&&(!line.contains("Leader"))&&(!line.contains("Players"))) {
+        			String player_name = extractRookiePlayer(line);
+        			makePlayerRookies(player_name);
+        		}
+        	}
+	}
+	
+	//Called by getRookiesScrap()
+	//Given a HTML line containing a list of all the rookies - call a regular expression
+	//to get only the player's name
+	private static String extractRookiePlayer(String string_given) {
+		String[] new_list = string_given.split("<a href=\"\\/players\\/[a-z]\\/[a-z]*[0-9]{2}.html\">|<\\/a><\\/td><td class=\"left \" data-stat=\"debut\" >");
+		return new_list[1];
+	}
+	
+	//If name given matches a player's name make the player a rookie
+	//Finds the player and makes them a rookie
+	private static void makePlayerRookies(String players_name) {
+		//Find the player whose name was given and make that person a rookie
+		for (int player_index =0 ;player_index<latest_roster_players.size();player_index++) {
+			String new_name = players_name;
+			//Converts name that have accents, special characters and non English phonology to Enlgish phonology
+			new_name = Normalizer.normalize(players_name, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
+			//Special Case because "Jr." is sometimes not always shown
+			//Check the new name will contain the Jr.
+			if (latest_roster_players.get(player_index).getPlayerName().contains("Jr.")) {
+				new_name = new_name + " Jr.";
+			}
+			//Once found set Rookie status to true
+			if (latest_roster_players.get(player_index).getPlayerName().equals(new_name)) {
+				System.out.println(latest_roster_players.get(player_index));
+				latest_roster_players.get(player_index).setRookieStatus(true);
+				player_index = latest_roster_players.size();
+			}
+		}
+	}
 
 	//Reads the team files based on the directory name given
 	//Initially the format was different format such as nbanotes - so use the readOldFile for older files
