@@ -23,11 +23,13 @@ http://www.espn.com/nba/players/_/position/pg
 https://www.nbastuffer.com/2019-2020-nba-player-stats/
 https://www.cbssports.com/nba/injuries/
 https://www.espn.com/nba/story/_/id/28292088/nba-all-star-game-2020-rosters-schedule-news-how-watch
+https://www.basketball-reference.com/leagues/NBA_2020_rookies.html
 
 For the first website, I am getting the current team rosters.
 For the second website, I am getting the every player's statistics.
 For the third website, I am getting the current injuries.
 For the fourth website, I am getting the current allstars.
+For the fifth website, I am getting the current rookies.
 
 Based on the player's PPG, RPG, APG, ORTG, UP, and MPG - I calcuate the player's offensive rating.
 Based on the player's SPG, BPG, DRTG and MPG - I calcuate the player's defensive rating.
@@ -73,6 +75,7 @@ I plan on creating an app so that others can simulate games on the go. I might a
 ### ESPN - http://www.espn.com/nba/players/_/position/pg https://www.espn.com/nba/story/_/id/28292088/nba-all-star-game-2020-rosters-schedule-news-how-watch
 ### NBA Stufferr - https://www.nbastuffer.com/2019-2020-nba-player-stats/
 ### CBS Sports - https://www.cbssports.com/nba/injuries/
+### Basketball Reference - https://www.basketball-reference.com/leagues/NBA_2020_rookies.html
 ### Regular Expressions 101 - https://regex101.com
 
 ## What I am using 
