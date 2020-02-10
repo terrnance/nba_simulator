@@ -390,9 +390,9 @@ public class NBARoster  {
 	}
 	
 	//Asks for the the player's first and last name, and if the player is 
-	//real then it asks for the rating and if rating is higher than player's
-	//rating is changed
-	public static void editPlayer() {
+	//real then it prompts the user to edit the player 
+	//Users can change the rating of the player, allstar status, injury status, rookie status, and position of the players
+	private static void editPlayer() {
 		boolean edit_player = true;
 		//Returns the selected player's index
 		int player_index = editPlayerOptions();
@@ -404,10 +404,135 @@ public class NBARoster  {
 		else {
 			System.out.println("Player Select is: "+ editable_roster_players.get(player_index).getPlayerName());
 		}
-		//If a real player is given, prompt the user to change the selected player's rating
+		//If a real player is given, prompt the user to change the selected player's rating, injury status, position, allstar status
 		if (edit_player) {
-			changePlayerRating(player_index,0);
+			updatePlayer(player_index);
 		}
+	}
+	
+	//Users are prompted to the change the attributes of the given player
+	//Users can change the rating of the player, allstar status, injury status, rookie status, and position of the players
+	//Changes to the player will be saved after editing
+	//However user's changes will not be permanently change until they actually save the roster
+	private static void updatePlayer(int player_index) {
+		Player player_selected = editable_roster_players.get(player_index);
+		boolean continue_editing = true;
+		//Continue prompting the user to change the attributes of the given player until they exit edit player mode
+		while (continue_editing) {
+			String allstar_string = " Make Allstar ";
+			if (player_selected.getAllstar()) {
+				allstar_string = " Take Away Allstar Status ";
+			}
+			String rookie_string = " Make Rookie ";
+			if (player_selected.getRookieStatus()) {
+				rookie_string = " Take Away Rookie Status ";
+			}
+			String injury_string = " Injure "+player_selected.getPlayerName();
+			if (player_selected.getInjury()) {
+				injury_string = " Heal "+player_selected.getPlayerName();
+			}
+			//List the options the user has available with the current player
+			System.out.println("[0] Exit Edit Player Mode, [1] Change "+player_selected.getPlayerName()+" "+(int)player_selected.getRating()+" Rating,  [2] "+injury_string);
+			System.out.println(", [3] "+allstar_string+", [4] "+rookie_string+", [5] Change Position from "+player_selected.getPosition());
+			//Prompt the user with the choice
+			int choice = scan.nextInt();
+			if (choice == 0 ) {
+				//If the user wishes to exit the player
+				continue_editing = false;
+			}
+			else if (choice == 1) {
+				//If the user wishes to change the player's rating
+				changePlayerRating(player_index,0);
+			}
+			else if (choice ==2 ) {
+				//If the user wishes to change the player's injury status
+				flipInjuryStatus(player_index);
+			}
+			else if (choice == 3) {
+				//If the user wishes to change the player's allstar status
+				flipAllstarStatus(player_index);
+			}
+			else if (choice == 4) {
+				//If the user wishes to change the player's rookie status
+				flipRookieStatus(player_index);
+			}
+			else if (choice == 5) {
+				//If the user wishes to change the player's position
+				selectNewPosition(player_index);
+			}
+		}
+	}
+	
+	//Flips the given player's injury status to be from healed to injured and from injured to healed
+	//Informs the user of the new injury status of the player
+	private static void flipInjuryStatus(int player_index) {
+		//Flips the given player's injury status
+		editable_roster_players.get(player_index).setInjury(!editable_roster_players.get(player_index).getInjury());
+		if (editable_roster_players.get(player_index).getInjury()) {
+			//Inform user player is now injured
+			System.out.println(editable_roster_players.get(player_index).getPlayerName()+" is now injured");
+		}
+		else {
+			//Inform user player is now healed
+			System.out.println(editable_roster_players.get(player_index).getPlayerName()+" is now healed");
+		}
+	}
+	
+	//Flips the given player's allstar status to be from allstar to non-allstar and from allstar to non-allstar
+	//Informs the user of the new allstar status of the player
+	private static void flipAllstarStatus(int player_index) {
+		//Flips the given player's allstar status
+		editable_roster_players.get(player_index).setAllstar(!editable_roster_players.get(player_index).getAllstar());
+		if (editable_roster_players.get(player_index).getAllstar()) {
+			//Inform user player is now an allstar
+			System.out.println(editable_roster_players.get(player_index).getPlayerName()+" is now an allstar");
+		}
+		else {
+			//Inform user player is now not an allstar
+			System.out.println(editable_roster_players.get(player_index).getPlayerName()+" is now not at an allstar");
+		}
+	}
+	
+	//Flips the given player's rookie status to be from rookie to non-rookie and from non-rookie to rookie
+	//Informs the user of the new rookie status of the player
+	private static void flipRookieStatus(int player_index) {
+		//Flips the given player's rookie status
+		editable_roster_players.get(player_index).setRookieStatus(!editable_roster_players.get(player_index).getRookieStatus());
+		if (editable_roster_players.get(player_index).getRookieStatus()) {
+			//Inform user player is now a rookie
+			System.out.println(editable_roster_players.get(player_index).getPlayerName()+" is now a rookie");
+		}
+		else {
+			//Inform user player is now not a rookie
+			System.out.println(editable_roster_players.get(player_index).getPlayerName()+" is now not at a rookie");
+		}
+	}
+	
+	//Users selected a new position for the player given
+	//if the user chooses the old position for the player - no changes will be made to the player
+	//if the user chooses a new position for the the player - will the player's position will change
+	private static void selectNewPosition(int player_index) {
+		System.out.println(" [0] Cancel , [1] PG, [2] SG, [3] SF, [4] PF, [C] 5");
+		int choice = scan.nextInt();
+		if (choice > 0 && choice < 6) {
+			//If the user chooses a position and does not cancel
+			String [] position_array = {"N/A","PG","SG","SF","PF","C"};
+			String new_position = position_array[choice];
+			if (player_index > -1) {
+				//If the user chooses a new position for the player - change the position and inform the user of success
+				if (!new_position.equals(editable_roster_players.get(player_index).getPosition())) {
+					editable_roster_players.get(player_index).setPosition(new_position);
+					System.out.println(editable_roster_players.get(player_index).getPlayerName()+" is now a "+editable_roster_players.get(player_index).getPosition());
+					return;
+				}
+			}
+			else {
+				//If a valid player index is not given
+				System.out.println("Please give a valid player");
+			}
+		}
+		//If the user does not give a valid choice or chooses the old position of the player
+		System.out.println(editable_roster_players.get(player_index).getPlayerName()+" is still a "+editable_roster_players.get(player_index).getPosition());
 	}
 	
 	//Edits the given players rating if the new rating is higher than their previous rating
