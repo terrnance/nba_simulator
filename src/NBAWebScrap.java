@@ -492,7 +492,7 @@ public class NBAWebScrap{
 	//Called by getLatestUpdates()
 	//Reads the HTML from the URL: "https://www.basketball-reference.com/leagues/NBA_2020_rookies.html"
 	//Finds the line of code containing the rookie player and their name
-	//Sets the player's rookie status to true Makes the playera rookie
+	//Sets the player's rookie status to true Makes the player a rookie
 	private static void getRookiesScrap() throws IOException {
 		URL url = new URL("https://www.basketball-reference.com/leagues/NBA_2020_rookies.html");
         	// Get the input stream through URL Connection
